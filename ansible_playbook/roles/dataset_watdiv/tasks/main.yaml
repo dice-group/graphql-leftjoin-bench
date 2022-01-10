@@ -1,0 +1,19 @@
+- name: Create the WATDIV directory
+  file:
+    path: "{{ target_dir }}/datasets/watdiv"
+    state: directory
+
+- name: Check for the WATDIV Generator
+  stat:
+    path: "{{ target_dir }}/datasets/watdiv/generator/bin/Release/watdiv"
+  register: generator
+
+- include: install-generator.yaml
+  when: not generator.stat.exists
+
+- include: run-generator.yaml
+
+- name: Download WATDIV OPTIONAL queries
+  get_url:
+    url: "{{ hobbit_url }}/watdiv.txt"
+    dest: "{{ target_dir }}/datasets/watdiv/queries.txt"

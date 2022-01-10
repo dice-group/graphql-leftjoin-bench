@@ -1,0 +1,57 @@
+- name: Create HTTP suite directories (SPARQL triplestores)
+  file:
+    path: "{{ target_dir }}/iguana_suites/sparql/{{ item[0].name }}/{{ item[1].name }}"
+    state: directory
+  loop: "{{ sparql_triplestores_http | product(sparql_datasets) | list }}"
+
+- name: Template copy start scripts (SPARQL triplestores)
+  template:
+    src: "{{ item[0].name|lower }}-start.sh"
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item[0].name }}/{{ item[1].name }}/{{ item[2].number }}-start.sh"
+    mode: 0755
+  loop: "{{ sparql_triplestores_http | product(sparql_datasets, iguana_http_connections) | list }}"
+
+- name: Template copy stop scripts (SPARQL triplestores)
+  template:
+    src: "{{ item.name|lower }}-stop.sh"
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item.name }}/stop.sh"
+    mode: 0755
+  loop: "{{ sparql_triplestores_http }}"
+
+- name: Template copy Iguana HTTP suites with time limit (SPARQL triplestores)
+  template:
+    src: httpT.suite
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item[0].name }}/{{ item[1].name }}/{{ item[2].number }}-T.yml"
+  loop: "{{ sparql_triplestores_http | product(sparql_datasets, iguana_http_connections[:4]) | list }}"
+
+- name: Template copy virtuoso config
+  template:
+    src: virtuoso-run.ini
+    dest: "{{ target_dir }}/systems/virtuoso/virtuoso-run-{{ item[0].name }}-{{ item[1].number }}.ini"
+  loop: "{{ sparql_datasets | product(iguana_http_connections) | list }}"
+
+- name: Create HTTP suite directories for tentris
+  file:
+    path: "{{ target_dir }}/iguana_suites/sparql/{{ item[0] }}/{{ item[1].name }}"
+    state: directory
+  loop: "{{ tentris_sparql_versions | product(sparql_datasets) | list }}"
+
+- name: Template copy tentris start scripts
+  template:
+    src: tentris-sparql-start.sh
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item[0] }}/{{ item[1].name }}/{{ item[2].number }}-start.sh"
+    mode: 0755
+  loop: "{{ tentris_sparql_versions | product(sparql_datasets, iguana_http_connections[:4]) | list }}"
+
+- name: Template copy tentris stop scripts
+  template:
+    src: tentris-stop.sh
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item }}/stop.sh"
+    mode: 0755
+  loop: "{{ tentris_sparql_versions }}"
+
+- name: Template copy Tentris Iguana HTTP suites (time limit)
+  template:
+    src: tentris-sparql-httpT.suite
+    dest: "{{ target_dir }}/iguana_suites/sparql/{{ item[0] }}/{{ item[1].name }}/{{ item[2].number }}-T.yml"
+  loop: "{{ tentris_sparql_versions | product(sparql_datasets, iguana_http_connections[:4]) | list }}"

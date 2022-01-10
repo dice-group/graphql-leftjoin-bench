@@ -1,0 +1,44 @@
+graphql_datasets:
+  - name: lingbm1000
+    path: 
+      neo4j: 
+        - "{{ target_dir }}/datasets/lingbm/neo4j_1000/Universities-nodes-u1000.csv"
+        - "{{ target_dir }}/datasets/lingbm/neo4j_1000/Universities-edges-u1000.csv"
+      tentris: "{{ target_dir }}/datasets/lingbm/tentris_1000/Universities-u1000.nt"
+    queries_path: 
+      neo4j: "{{ target_dir }}/datasets/lingbm/neo4j_1000"
+      tentris: "{{ target_dir }}/datasets/lingbm/tentris_1000"
+    schema_path:
+      tentris: "{{ target_dir }}/datasets/lingbm/tentris_1000/schema.graphql"
+      tentris_noid: "{{ target_dir }}/datasets/lingbm/tentris_1000/schema-noid.graphql"
+    max_ram: 262143866 # in KByte
+  # - name: lingbm2000
+  #   path: 
+  #     neo4j: 
+  #       - "{{ target_dir }}/datasets/lingbm/neo4j_2000/Universities-nodes.csv"
+  #       - "{{ target_dir }}/datasets/lingbm/neo4j_2000/Universities-edges.csv"
+  #     tentris: "{{ target_dir }}/datasets/lingbm/tentris_2000/Universities-u2000.nt"
+  #   queries_path: 
+  #     neo4j: "{{ target_dir }}/datasets/lingbm/neo4j_2000"
+  #     tentris: "{{ target_dir }}/datasets/lingbm/tentris_2000"
+  #   schema_path:
+  #     tentris: "{{ target_dir }}/datasets/lingbm/tentris_2000/schema.graphql"
+  #     tentris_noid: "{{ target_dir }}/datasets/lingbm/tentris_2000/schema-noid.graphql"
+  #   max_ram: 262143866 # in KByte
+
+sparql_datasets:
+  - name: watdiv10000
+    path: "{{ target_dir }}/datasets/watdiv/watdiv10000/data.nt"
+    queries_path: "{{ target_dir }}/datasets/watdiv/queries.txt"
+    max_ram: 262143866 # in KByte
+
+graphql_services:
+  - neo4j
+
+sparql_triplestores:
+  - fuseki
+  - blazegraph
+  - virtuoso
+  - graphdb
+
+load_max_ram: 262143866 # in KByte

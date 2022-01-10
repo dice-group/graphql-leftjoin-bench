@@ -1,0 +1,8 @@
+dependencies:
+  - role: base
+  - role: neo4j
+  - role: tentris
+  - role: fuseki
+  - role: virtuoso
+  - role: blazegraph
+  - role: graphdb

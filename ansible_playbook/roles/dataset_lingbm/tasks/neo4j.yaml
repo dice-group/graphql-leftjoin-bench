@@ -1,0 +1,42 @@
+- name: Create a temporary download directory
+  tempfile:
+    state: directory
+    suffix: dneo4j
+  register: tempdir
+
+- name: Create Neo4J directory
+  file:
+    path: "{{ target_dir }}/datasets/lingbm/neo4j_{{ item }}"
+    state: directory
+  loop: "{{ lingbm_instances }}"
+
+- name: Download LinGBM data (Neo4J)
+  get_url:
+    url: "{{ hobbit_url }}/dneo4j_{{ item }}.zip"
+    dest: "{{ tempdir.path }}/dneo4j_{{ item }}.zip"
+  loop: "{{ lingbm_instances }}"
+
+- name: Unzip data (Neo4J)
+  unarchive:
+    src: "{{ tempdir.path }}/dneo4j_{{ item }}.zip"
+    dest: "{{ target_dir }}/datasets/lingbm/neo4j_{{ item }}/"
+    remote_src: yes
+  loop: "{{ lingbm_instances }}"
+
+- name: Download LinGBM queries (Neo4J)
+  get_url:
+    url: "{{ hobbit_url }}/qneo4j_{{ item }}.zip"
+    dest: "{{ tempdir.path }}/qneo4j_{{ item }}.zip"
+  loop: "{{ lingbm_instances }}"
+
+- name: Unzip queries (Neo4J)
+  unarchive:
+    src: "{{ tempdir.path }}/qneo4j_{{ item }}.zip"
+    dest: "{{ target_dir }}/datasets/lingbm/neo4j_{{ item }}/"
+    remote_src: yes
+  loop: "{{ lingbm_instances }}"
+
+- name: Delete tempdir
+  file:
+    path: "{{ tempdir.path }}"
+    state: absent

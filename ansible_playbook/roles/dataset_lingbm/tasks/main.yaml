@@ -1,0 +1,16 @@
+- name: Check for LingGBM directory
+  stat:
+    path: "{{ target_dir }}/datasets/lingbm"
+  register: lingbm_dir
+
+- name: Create LinGBM directory
+  file:
+    path: "{{ target_dir }}/datasets/lingbm/"
+    state: directory
+  when: not lingbm_dir.stat.exists
+
+- include: neo4j.yaml
+  when: not lingbm_dir.stat.exists
+
+- include: tentris.yaml
+  when: not lingbm_dir.stat.exists

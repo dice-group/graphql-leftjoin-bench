@@ -1,0 +1,15 @@
+dependencies:
+  - role: base
+  - role: build_common
+  - role: dataset_lingbm
+  - role: dataset_watdiv
+  - role: neo4j
+  - role: tentris
+  - role: jena
+  - role: fuseki
+  - role: virtuoso
+  - role: graphdb
+  - role: blazegraph
+  - role: loaders
+  - role: iguana
+  - role: iguana_suites

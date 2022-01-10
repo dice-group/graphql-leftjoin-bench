@@ -1,0 +1,54 @@
+- name: Create a temporary download directory
+  tempfile:
+    state: directory
+    suffix: dtenris
+  register: tempdir
+
+- name: Create Tentris directory
+  file:
+    path: "{{ target_dir }}/datasets/lingbm/tentris_{{ item }}"
+    state: directory
+  loop: "{{ lingbm_instances }}"
+
+- name: Downlaod LinGBM data (Tentris)
+  get_url:
+    url: "{{ hobbit_url }}/dtentris_{{ item }}.zip"
+    dest: "{{ tempdir.path }}/dtentris_{{ item }}.zip"
+  loop: "{{ lingbm_instances }}"
+
+- name: Unzip data (Tentris)
+  unarchive:
+    src: "{{ tempdir.path }}/dtentris_{{ item }}.zip"
+    dest: "{{ target_dir }}/datasets/lingbm/tentris_{{ item }}/"
+    remote_src: yes
+  loop: "{{ lingbm_instances }}"
+
+- name: Downlaod LinGBM queries (Tentris)
+  get_url:
+    url: "{{ hobbit_url }}/qtentris_{{ item }}.zip"
+    dest: "{{ tempdir.path }}/qtentris_{{ item }}.zip"
+  loop: "{{ lingbm_instances }}"
+
+- name: Unzip queries (Tentris)
+  unarchive:
+    src: "{{ tempdir.path }}/qtentris_{{ item }}.zip"
+    dest: "{{ target_dir }}/datasets/lingbm/tentris_{{ item }}/"
+    remote_src: yes
+  loop: "{{ lingbm_instances }}"
+
+- name: Download LinGBM schema (Tentris)
+  get_url:
+    url: "{{ hobbit_url }}/tentris-lingbm.graphql"
+    dest: "{{ target_dir }}/datasets/lingbm/tentris_{{ item }}/schema.graphql"
+  loop: "{{ lingbm_instances }}"
+
+- name: Download LinGBM schema (Tentris / no ID)
+  get_url:
+    url: "{{ hobbit_url }}/tentris-lingbm-noid.graphql"
+    dest: "{{ target_dir }}/datasets/lingbm/tentris_{{ item }}/schema-noid.graphql"
+  loop: "{{ lingbm_instances }}"
+
+- name: Delete tempdir
+  file:
+    path: "{{ tempdir.path }}"
+    state: absent

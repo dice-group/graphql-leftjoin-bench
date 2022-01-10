@@ -1,0 +1,7 @@
+- name: Check for Jena
+  stat:
+    path: "{{ target_dir }}/systems/jena/apache-jena-{{ jena_version }}/"
+  register: jena_dir
+
+- include: install.yaml
+  when: not jena_dir.stat.exists

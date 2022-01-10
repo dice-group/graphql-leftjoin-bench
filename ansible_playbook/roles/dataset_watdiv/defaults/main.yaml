@@ -1,0 +1,3 @@
+watdiv_datasets:
+  - name: watdiv10000
+    scale_factor: 10000

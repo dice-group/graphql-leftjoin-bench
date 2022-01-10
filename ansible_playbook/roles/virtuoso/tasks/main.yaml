@@ -1,0 +1,7 @@
+- name: Check for Virtuoso
+  stat:
+    path: "{{ target_dir }}/systems/virtuoso/{{ virtuoso_version }}/"
+  register: virtuoso_dir
+
+- include: install.yaml
+  when: not virtuoso_dir.stat.exists

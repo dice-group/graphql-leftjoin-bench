@@ -1,0 +1,37 @@
+- name: Create a tempory download directory
+  tempfile:
+    state: directory
+    suffix: tentris
+  register: tempdir
+
+- name: copy script
+  copy:
+    src: /home/nkaralis/graphql_benchmark/tentris_gql-www2022.zip
+    dest: '{{ tempdir.path }}'
+
+- name: copy script
+  copy:
+    src: clone_and_build_tentris.sh
+    dest: '{{ tempdir.path }}'
+
+- name: Build Tentris binaries
+  shell: 'bash clone_and_build_tentris.sh {{ tentris_version }}'
+  args:
+    chdir: '{{ tempdir.path }}'
+
+- name: Create installation directory
+  file:
+    path: "{{ target_dir }}/systems/{{ tentris_version }}"
+    state: directory
+
+- name: Install tentris_server
+  copy:
+    remote_src: yes
+    src: "{{ tempdir.path }}/{{ tentris_version }}/tentris_server"
+    dest: "{{ target_dir }}/systems/{{ tentris_version }}/tentris_server"
+    mode: 0755
+
+- name: Delete tempdir
+  file:
+    path: "{{ tempdir.path }}"
+    state: absent

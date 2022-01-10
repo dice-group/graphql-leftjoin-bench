@@ -1,0 +1,37 @@
+- name: Install curl (to talk to http endpoints)
+  become: yes
+  apt:
+    package: curl
+
+- name: Create loader directory
+  file:
+    path: "{{ target_dir }}/loaders"
+    state: directory
+
+- name: Template copy loader scripts for Neo4J
+  template:
+    src: "neo4j-load.sh"
+    dest: "{{ target_dir }}/loaders/neo4j-load-{{ item.name }}.sh"
+    mode: 0755
+  loop: "{{ graphql_datasets }}"
+
+- name: Template copy loader scripts (SPARQL triplestores)
+  template:
+    src: "{{ item[0] }}-load.sh"
+    dest: "{{ target_dir }}/loaders/{{ item[0] }}-load-{{ item[1].name }}.sh"
+    mode: 0755
+  loop: "{{ sparql_triplestores | product(sparql_datasets) | list }}"
+
+- name: Template copy virtuoso configurations
+  template:
+    src: virtuoso-load.ini
+    dest: "{{ target_dir }}/systems/virtuoso/virtuoso-load-{{ item.name }}.ini"
+  loop: "{{ sparql_datasets }}"
+  when: "'virtuoso' in sparql_triplestores"
+
+- name: Template copy GraphDB configurations
+  template:
+    src: graphdb.ttl
+    dest: "{{ target_dir }}/systems/graphdb/graphdb-{{ item.name }}.ttl"
+  loop: "{{ sparql_datasets }}"
+  when: "'graphdb' in sparql_triplestores"
