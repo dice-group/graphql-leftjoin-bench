@@ -1,0 +1,3 @@
+ansible_playbook/inventory.yaml
+ansible_playbook/roles/base/defaults/main.yaml
+ansible_playbook/roles/graphdb/tasks/install.yaml
