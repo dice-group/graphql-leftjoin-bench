@@ -51,6 +51,7 @@
 #   become: yes
 #   apt:
 #     name:
+#       - containerd
 #       - docker.io
 #       - docker-compose
 
@@ -59,6 +60,7 @@
 #   user:
 #     name: "{{ user }}"
 #     groups: docker
+#     append: yes
 
 # - name: Reset connection so that user being added to docker group takes effect
 #   meta: reset_connection
