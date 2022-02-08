@@ -5,11 +5,11 @@ echo "SPARQL benchmark"
 echo "Running Time Limit suites (multiple workers)"
 for ts in "${triplestores[@]}"
 do
-	if [[ "$ts" == "GraphDB" ]]; then
-    continue
-  fi
 	for i in "${workers[@]}"
 	do
+		if [[ "$ts" == "GraphDB" ]] && ((workers > 1)) ; then # graphdb-free does not support concurrent clients
+    	continue
+  	fi
 		echo "$(date): Starting $ts, Workers: $i"
 		./iguana_suites/sparql/"$ts"/watdiv10000/"$i"-start.sh &> /dev/null
 		echo "$(date): Running IGUANA (QM Limit) for $ts, Workers: $i"

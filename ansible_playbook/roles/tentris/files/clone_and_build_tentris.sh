@@ -9,9 +9,8 @@ function clone_and_build() {
   working_dir=$(pwd)
 
   tentris_code_dir="tentris_code_${version}_$(tr -dc a-z </dev/urandom | head -c 16)"
-  # git clone irb-git@git.cs.uni-paderborn.de:nkaralis/tentris_gql.git "${tentris_code_dir}" || exit
-  unzip tentris_gql-www2022.zip ; mv tentris_gql-www2022 "${tentris_code_dir}" || exit
-
+  git clone -b graphql-endpoint https://github.com/dice-group/tentris.git "${tentris_code_dir}" || exit
+  
   cd "${tentris_code_dir}" || exit
 
   mkdir build && cd "$_" || exit

@@ -4,10 +4,10 @@
     suffix: tentris
   register: tempdir
 
-- name: copy script
-  copy:
-    src: /home/nkaralis/graphql_benchmark/tentris_gql-www2022.zip
-    dest: '{{ tempdir.path }}'
+# - name: copy script
+#   copy:
+#     src: /home/nkaralis/graphql_benchmark/tentris_gql-www2022.zip
+#     dest: '{{ tempdir.path }}'
 
 - name: copy script
   copy:
