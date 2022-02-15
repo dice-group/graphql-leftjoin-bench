@@ -1,3 +1,4 @@
 target_dir: <installation_directory>
 user: <user>
 hobbit_url: https://hobbitdata.informatik.uni-leipzig.de/tentris-lj
+system_memory: 268435456 # in kilobytes

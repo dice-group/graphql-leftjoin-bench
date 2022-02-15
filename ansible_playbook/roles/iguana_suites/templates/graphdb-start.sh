@@ -9,7 +9,7 @@ fi
 
 echo $(date --iso-8601) - Starting GraphDB
 
-export GDB_HEAP_SIZE={{ item[1].max_ram }}K
+export GDB_HEAP_SIZE={{ item[1].max_ram * 0.66 }}K
 
 {{ target_dir }}/systems/graphdb/graphdb-free-{{ graphdb_version }}/bin/graphdb -d -p {{ target_dir }}/graphdb.pid -s -Dgraphdb.home={{ target_dir }}/databases/graphdb/{{ item[1].name }}
 

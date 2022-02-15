@@ -10,7 +10,7 @@ fi
 echo $(date --iso-8601) - Starting Blazegraph
 
 cd {{ target_dir }}/databases/blazegraph/{{ item[1].name }}
-java -Xmx{{ item[1].max_ram }}K -jar {{ target_dir }}/systems/blazegraph/blazegraph.jar 9999 {{ item[1].name }} {{ target_dir }}/systems/application.properties </dev/null 2>&1 >{{ target_dir }}/logs/run/blazegraph-{{ item[1].name }}-{{ item[2].number }}.log & disown
+java -XX:+UseG1GC -Xmx{{ system_memory * 0.5 }}K -jar {{ target_dir }}/systems/blazegraph/blazegraph.jar 9999 {{ item[1].name }} {{ target_dir }}/systems/application.properties </dev/null 2>&1 >{{ target_dir }}/logs/run/blazegraph-{{ item[1].name }}-{{ item[2].number }}.log & disown
 pid=$!
 
 echo $pid > {{ target_dir }}/blazegraph.pid

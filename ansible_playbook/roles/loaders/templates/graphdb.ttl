@@ -22,5 +22,7 @@
                         owlim:enablePredicateList "true" ;
                         owlim:enable-literal-index "true" ;
                         owlim:in-memory-literal-properties "true" ;
+                        # SPECIFIC FOR WATDIV 1B (UNIQUE SUBJECTS)
+                        owlim:entity-index-size "52000000" ;
         ]
     ].
