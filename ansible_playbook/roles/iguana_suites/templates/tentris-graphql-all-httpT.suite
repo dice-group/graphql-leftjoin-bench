@@ -16,7 +16,7 @@ tasks:
           className: "HttpGetWorker"
           queriesFile: "{{ item[1].queries_path.tentris }}/allqts.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: lang.SIMPLE
+          language: "lang.SIMPLE"
 
 #optional otherwise the same metrics will be used as default
 metrics:
