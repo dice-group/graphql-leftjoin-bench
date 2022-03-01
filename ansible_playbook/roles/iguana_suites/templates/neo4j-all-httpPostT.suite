@@ -19,7 +19,6 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/allqts.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
 
 #optional otherwise the same metrics will be used as default
 metrics:

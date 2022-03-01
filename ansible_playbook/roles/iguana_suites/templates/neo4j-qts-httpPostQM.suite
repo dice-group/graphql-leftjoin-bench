@@ -19,8 +19,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt1.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -30,8 +29,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt2.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -41,8 +39,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt3.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -52,8 +49,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt4.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -63,8 +59,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt5.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -74,8 +69,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt6.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -85,8 +79,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt7.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -96,8 +89,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt8.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -107,8 +99,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt9.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -118,8 +109,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt10.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-  - className: "Stresstest"
+            - className: "Stresstest"
     configuration:
       noOfQueryMixes: {{ iguana_query_mixes_limit }}
       queryHandler:
@@ -129,8 +119,7 @@ tasks:
           className: CypherWorker
           queriesFile: "{{ item[0].queries_path.neo4j }}/qt11.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: "lang.SIMPLE"
-
+          
 #optional otherwise the same metrics will be used as default
 metrics:
   - className: "QMPH"
