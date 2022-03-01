@@ -16,7 +16,7 @@ tasks:
           className: "HttpGetWorker"
           language: lang.SIMPLE
           responseType: "application/sparql-results+json"
-          queriesFile: "{{ item[1].queries_path }}"
+          queriesFile: "{{ item[1].queries_path }}/queries.txt"
           timeOut: {{ iguana_query_timeout }}
 
 #optional otherwise the same metrics will be used as default

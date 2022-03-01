@@ -14,11 +14,190 @@ tasks:
       workers:
         - threads: {{ item[2].number }}
           className: "HttpGetWorker"
-          language: lang.SIMPLE
+          language: "lang.SIMPLE"
           responseType: "application/sparql-results+json"
-          queriesFile: "{{ item[1].queries_path }}"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/L1.txt"
           timeOut: {{ iguana_query_timeout }}
-          language: lang.SIMPLE
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/L2.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/L3.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/L4.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/L5.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S1.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S2.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S3.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S4.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S5.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S6.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/S7.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/F1.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/F2.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/F4.txt"
+          timeOut: {{ iguana_query_timeout }}
+  - className: "Stresstest"
+    configuration:
+      noOfQueryMixes: {{ iguana_query_mixes_limit }}
+      queryHandler:
+        className: "InstancesQueryHandler"
+      workers:
+        - threads: {{ item[2].number }}
+          className: "HttpGetWorker"
+          language: "lang.SIMPLE"
+          responseType: "application/sparql-results+json"
+          queriesFile: "{{ item[1].queries_path }}/watdiv_instances/F5.txt"
+          timeOut: {{ iguana_query_timeout }}
 
 #optional otherwise the same metrics will be used as default
 metrics:
@@ -33,4 +212,3 @@ storages:
   - className: "NTFileStorage"
     configuration:
       fileName: {{ target_dir }}/iguana_results/sparql/results_{{ item[0] }}-{{ item[1].name }}-{{ item[2].number }}-QM.nt
-
