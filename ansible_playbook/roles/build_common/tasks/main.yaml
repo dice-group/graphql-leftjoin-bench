@@ -56,12 +56,3 @@
   become: yes
   shell: |
     npm install --save neo4j-graphql-js graphql graphql-tools apollo-server
-
-# - name: Install Docker
-#   become: yes
-#   apt:
-#     name:
-#       # - containerd
-#       - docker.io
-#       - docker-compose
-#     state: latest
