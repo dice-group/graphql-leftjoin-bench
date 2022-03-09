@@ -24,3 +24,8 @@
     url: "https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/{{ apoc_version }}/apoc-{{ apoc_version }}-core.jar"
     dest: "{{ apoc_jar_path }}"
   when: not apoc.stat.exists
+
+- name: Copy neo4j_graphql_js
+  template:
+    src: translation.js
+    dest: "{{ target_dir }}/systems/neo4j/translation.js"
