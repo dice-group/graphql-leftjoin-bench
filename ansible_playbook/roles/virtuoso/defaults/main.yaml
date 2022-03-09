@@ -1,1 +1,4 @@
 virtuoso_version: 7.2.5.1
+virt_mem: "{{ (system_memory|int * 0.66)|int }}"
+virt_number_of_buffers: "{{ (virt_mem|int / 8)|int }}"
+virt_max_dirty_buffers: "{{ (virt_number_of_buffers|int * 0.75)|int }}"
