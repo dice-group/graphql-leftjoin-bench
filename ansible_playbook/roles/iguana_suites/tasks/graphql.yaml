@@ -37,6 +37,12 @@
     dest: "{{ target_dir }}/iguana_suites/graphql/neo4j/{{ item[0].name }}/{{ item[1].number }}-qts-QM.yml"
   loop: "{{ graphql_datasets | product(iguana_http_connections[:1]) | list }}"
 
+- name: Template copy Iguana suites for Neo4JTranslation (time limit, all)
+  template:
+    src: neo4j-translation-all-httpGetT.suite
+    dest: "{{ target_dir }}/iguana_suites/graphql/neo4j/{{ item[0].name }}/{{ item[1].number }}-translation-all-T.yml"
+  loop: "{{ graphql_datasets | product(iguana_http_connections[:1]) | list }}"
+
 - name: Create HTTP suite directories for Tentris
   file:
     path: "{{ target_dir }}/iguana_suites/graphql/{{ item[0] }}/{{ item[1].name }}"
