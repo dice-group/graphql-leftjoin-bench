@@ -13,7 +13,23 @@
 
 - include: run-generator.yaml
 
-- name: Download WATDIV OPTIONAL queries
-  get_url:
-    url: "{{ hobbit_url }}/watdiv.txt"
-    dest: "{{ target_dir }}/datasets/watdiv/queries.txt"
+# - name: Download WATDIV OPTIONAL queries
+#   get_url:
+#     url: "{{ hobbit_url }}/watdiv.txt"
+#     dest: "{{ target_dir }}/datasets/watdiv/queries.txt"
+
+# - name: Download WATDIV OPTIONAL queries multiple instances
+#   get_url:
+#     url: "{{ hobbit_url }}/watdiv_instances.zip"
+#     dest: "{{ target_dir }}/datasets/watdiv/watdiv_instances.zip"
+
+# - name: Create directory for WATDIV OPTIONAL queries multiple instances
+#   file:
+#     path: "{{ target_dir }}/datasets/watdiv/watdiv_instances/"
+#     state: directory
+
+# - name: Unzip WATDIV OPTIONAL queries multiple instances
+#   unarchive:
+#     src: "{{ target_dir }}/datasets/watdiv/watdiv_instances.zip"
+#     dest: "{{ target_dir }}/datasets/watdiv/"
+#     remote_src: yes
