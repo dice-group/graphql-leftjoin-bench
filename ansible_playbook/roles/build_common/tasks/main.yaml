@@ -47,20 +47,21 @@
       - maven
     state: present
 
+- name: Install NodeJS
+  become: yes
+  shell: |
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && sudo apt-get install -y nodejs
+
+- name: Install neo4j_graphql_js
+  become: yes
+  shell: |
+    npm install --save neo4j-graphql-js graphql graphql-tools apollo-server
+
 # - name: Install Docker
 #   become: yes
 #   apt:
 #     name:
-#       - containerd
+#       # - containerd
 #       - docker.io
 #       - docker-compose
-
-# - name: Add user to Docker group
-#   become: yes
-#   user:
-#     name: "{{ user }}"
-#     groups: docker
-#     append: yes
-
-# - name: Reset connection so that user being added to docker group takes effect
-#   meta: reset_connection
+#     state: latest
