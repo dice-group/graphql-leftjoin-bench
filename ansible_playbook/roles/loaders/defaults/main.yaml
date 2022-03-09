@@ -11,13 +11,13 @@ graphql_datasets:
     schema_path:
       tentris: "{{ target_dir }}/datasets/lingbm/tentris_1000/schema.graphql"
       tentris_noid: "{{ target_dir }}/datasets/lingbm/tentris_1000/schema-noid.graphql"
-    max_ram: {{ system_memory }} # in KByte
+    max_ram: "{{ system_memory }}" # in KByte
 
 sparql_datasets:
   - name: watdiv10000
     path: "{{ target_dir }}/datasets/watdiv/watdiv10000/data.nt"
-    queries_path: "{{ target_dir }}/datasets/watdiv/queries.txt"
-    max_ram: {{ system_memory }} # in KByte
+    queries_path: "{{ target_dir }}/datasets/watdiv"
+    max_ram: "{{ system_memory }}" # in KByte
 
 graphql_services:
   - neo4j
@@ -28,4 +28,4 @@ sparql_triplestores:
   - virtuoso
   - graphdb
 
-load_max_ram: {{ system_memory }} # in KByte
+load_max_ram: "{{ system_memory }}" # in KByte
