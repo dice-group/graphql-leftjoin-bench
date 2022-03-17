@@ -36,7 +36,7 @@ To run the GraphQL benchmarks run the script ```run_sparql.sh``` with root privi
     sudo ./run_sparql.sh
 
 # Artifacts
-
+The artifacts (e.g., schemata, queries, etc.) are available in the directory ```artifacts```.
 
 ---
 #### Based on the repository: https://github.com/dice-group/tentris-paper-benchmarks
