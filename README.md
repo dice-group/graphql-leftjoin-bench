@@ -1,5 +1,9 @@
 # Benchmarks for the paper: Rapid Execution of GraphQL queries over Tensors
 
+# Source Code
+ - https://github.com/dice-group/tentris/tree/graphql-endpoint
+ - https://github.com/dice-group/hypertrie/tree/left-join
+
 # Ansible
 To set up the experiments we provide an Ansible playbook.
 
