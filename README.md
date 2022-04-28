@@ -34,10 +34,16 @@ To run the GraphQL benchmarks run the script ```run_graphql.sh``` with root priv
     cd <target_dir>
     sudo ./run_graphql.sh
 
-To run the GraphQL benchmarks run the script ```run_sparql.sh``` with root privileges.
+
+To run the SPARQL benchmarks run the script ```run_sparql.sh``` with root privileges.
 
     cd <target_dir>
     sudo ./run_sparql.sh
+    
+To run the GrahQPL configuration for Neoj4RW run the script ```run_translation.sh``` with root privileges.
+
+    cd <target_dir>
+    sudo ./run_translation.sh
 
 # Artifacts
 The artifacts (e.g., schemata, queries, etc.) are available in the directory ```artifacts```.
