@@ -1,4 +1,4 @@
-# Benchmarks for the paper: Rapid Execution of GraphQL queries over Tensors
+# Benchmarks for the paper: Rapid Execution of GraphQL Queries over Tensors
 
 # Source Code
  - https://github.com/dice-group/tentris/tree/graphql-endpoint
