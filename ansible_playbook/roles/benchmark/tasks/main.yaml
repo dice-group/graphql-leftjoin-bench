@@ -9,6 +9,12 @@
     src: "run_sparql.sh"
     dest: "{{ target_dir }}/run_sparql.sh"
     mode: 0755
+    
+- name: Copy translation script
+  template:
+    src: "run_translation.sh"
+    dest: "{{ target_dir }}/run_translation.sh"
+    mode: 0755
 
 - name: Copy load script
   template:
